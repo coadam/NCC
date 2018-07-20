@@ -1,0 +1,31 @@
+<div class='main-content'>
+  <%= form_for(@quotation, url: quotations_path, html: { class: 'basic' }) do |f| %>
+
+      <div class='title-row'>
+        <h1>Add New Quotation</h1>
+        <div class='button'>
+          <%= link_to 'Quotations list', quotations_path %>
+        </div>
+        <% if @quotation.errors.any? %>
+        <div>
+          <ul>
+          <% @quotation.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+        <% end %>
+      </div>
+
+      <div class='row field'>
+        <label>
+          <span>Content of quotation:</span>
+          <%= f.text_area :content %>
+        </label>
+      </div>
+
+      <div class='row'>
+        <button type="submit">Add quotation!</button>
+      </div>
+  <% end %>
+</div>

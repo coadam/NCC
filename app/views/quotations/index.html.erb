@@ -1,0 +1,20 @@
+<div class='main-content'>
+  <div class='basic'>
+    <p id='notice'><%= notice %></p>
+
+    <h1>Quotations</h1>
+    <div class='button'>
+      <%= link_to 'New Quotation', new_quotation_path %>
+    </div>
+    <% @quotations.each do |quotation| %>
+      <div class='list'>
+        <table>
+          <tbody>
+            <tr><td class='content'><%= quotation.content %></td></tr>
+          </tbody>
+        </table>
+      </div>
+    <% end %>
+    <br>
+  </div>
+</div>
