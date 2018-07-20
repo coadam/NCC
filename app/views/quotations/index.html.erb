@@ -1,19 +1,19 @@
-<div class='main-content'>
-  <div class='basic'>
-    <p id='notice'><%= notice %></p>
+<div class='jumbotron text-center'>
+    <h1 class=display-4>Quotations</h1>
+      <% if notice.present? %>
+        <div class='alert alert-success' role="alert"><%= notice %></div>
+      <% end %>
+    <hr class="my-4">
+    <p>Use the button to add a new quotation.</p>
+      <%= link_to 'New Quotation', new_quotation_path, class: 'btn btn-primary btn-lg' %>
+</div>
 
-    <h1>Quotations</h1>
-    <div class='button'>
-      <%= link_to 'New Quotation', new_quotation_path %>
-    </div>
     <% @quotations.each do |quotation| %>
-      <div class='list'>
-        <table>
-          <tbody>
-            <tr><td class='content'><%= quotation.content %></td></tr>
-          </tbody>
-        </table>
-      </div>
+      <ul class='list-group list-group-flush'>
+
+            <li class='list-group-item text-center'><%= quotation.content %></li>
+
+      </ul>
     <% end %>
     <br>
   </div>
