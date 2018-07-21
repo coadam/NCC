@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Quotation.destroy_all
+
+10.times do |n|
+  content = Faker::BackToTheFuture.quote
+  Quotation.create!(content: content)
+end
+
+p "Created #{Quotation.count} quotations"

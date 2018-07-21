@@ -1,0 +1,20 @@
+<div class='jumbotron text-center'>
+    <h1 class=display-4>Quotations</h1>
+      <% if notice.present? %>
+        <div class='alert alert-success' role="alert"><%= notice %></div>
+      <% end %>
+    <hr class="my-4">
+    <p>Use the button to add a new quotation.</p>
+      <%= link_to 'New Quotation', new_quotation_path, class: 'btn btn-primary btn-lg' %>
+</div>
+
+    <% @quotations.each do |quotation| %>
+      <ul class='list-group list-group-flush'>
+
+            <li class='list-group-item text-center'><%= quotation.content %></li>
+
+      </ul>
+    <% end %>
+    <br>
+  </div>
+</div>
