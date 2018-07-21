@@ -8,18 +8,9 @@
 
 Quotation.destroy_all
 
-Quotation.create!([{
-  content: "Hell is that state where one has ceased to hope."
-},
-{
-  content: "To be or not to be."
-},
-{
-  content: "Test Quote"
-},
-{
-  content: "O, human love! thou spirit given, On Earth, of all we hope in Heaven!"
-}
-])
+10.times do |n|
+  content = Faker::BackToTheFuture.quote
+  Quotation.create!(content: content)
+end
 
 p "Created #{Quotation.count} quotations"

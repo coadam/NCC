@@ -1,31 +1,17 @@
-<div class='main-content'>
+<div class='jumbotron text-center'>
+  <h1 class=display-4>Add new Quotation</h1>
+  <hr class="my-4">
+  <div>
+    <% @quotation.errors.full_messages.each do |message| %>
+      <div class='alert alert-danger'><%= message %></div>
+    <% end %>
+  </div>
+
   <%= form_for(@quotation, url: quotations_path, html: { class: 'basic' }) do |f| %>
-
-      <div class='title-row'>
-        <h1>Add New Quotation</h1>
-        <div class='button'>
-          <%= link_to 'Quotations list', quotations_path %>
-        </div>
-        <% if @quotation.errors.any? %>
-        <div>
-          <ul>
-          <% @quotation.errors.full_messages.each do |message| %>
-            <li><%= message %></li>
-          <% end %>
-          </ul>
-        </div>
-        <% end %>
-      </div>
-
-      <div class='row field'>
-        <label>
-          <span>Content of quotation:</span>
-          <%= f.text_area :content %>
-        </label>
-      </div>
-
-      <div class='row'>
-        <button type="submit">Add quotation!</button>
-      </div>
+    <div class="form-group">
+      <%= f.text_area :content, class:'form-control form-control-lg', rows:'3', placeholder:'Enter your quotation here.' %>
+      <%= f.submit 'Add Quotation', class: 'btn btn-success btn-lg m-4' %>
+      <%= link_to 'Quotation list', quotations_path, class: 'btn btn-secondary btn-lg m-4' %>
+    </div>
   <% end %>
 </div>
